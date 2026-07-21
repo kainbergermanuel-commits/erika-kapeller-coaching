@@ -134,7 +134,7 @@ img { max-width: 100%; display: block; }
   transition: background .3s ease, transform .3s ease, box-shadow .3s ease;
   white-space: nowrap;
 }
-.nav-cta:hover { background: var(--accent-deep); transform: translateY(-2px); box-shadow: 0 10px 22px -10px rgba(168,83,47,0.55); }
+.nav-cta:hover { background: var(--accent-deep); color: #fff; transform: translateY(-2px); box-shadow: 0 10px 22px -10px rgba(168,83,47,0.55); }
 
 .nav-toggle {
   display: none;
@@ -542,7 +542,9 @@ body.nav-open { overflow: hidden; }
 .spirit-title { font-family: 'Newsreader', serif; font-weight: 400; font-size: clamp(26px,3.4vw,38px); line-height: 1.15; margin: 14px 0; }
 .spirit-lead { color: #cdbfae; font-size: 16px; line-height: 1.65; }
 
-.spirit-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px,1fr)); gap: 18px; }
+.spirit-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+@media (max-width: 900px) { .spirit-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 520px) { .spirit-grid { grid-template-columns: 1fr; } }
 .spirit-card {
   border: 1px solid rgba(255,255,255,0.14);
   border-radius: 16px;
