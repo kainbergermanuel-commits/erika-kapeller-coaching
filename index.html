@@ -14,7 +14,7 @@
 
 <!-- NAV -->
 <header class="site-header">
-  <nav class="navbar">
+  <nav class="navbar" aria-label="Hauptnavigation">
     <a href="#top" class="logo">
       Erika Kapeller
       <span class="logo-tag">Coaching</span>
@@ -27,16 +27,16 @@
       <a href="https://calendly.com/erikakapeller" target="_blank" rel="noopener" class="nav-cta">Kostenloses Gespräch</a>
     </div>
     <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false" data-mobile-toggle>
-      <span class="nav-toggle-icon">≡</span>
+      <span class="nav-toggle-icon" aria-hidden="true">≡</span>
     </button>
   </nav>
 </header>
 
-<div class="nav-overlay" data-mobile-overlay></div>
-<aside class="nav-drawer" data-mobile-menu>
-  <button class="nav-drawer-close" aria-label="Menü schließen" data-close-nav>×</button>
+<div class="nav-overlay" data-mobile-overlay aria-hidden="true"></div>
+<aside class="nav-drawer" data-mobile-menu role="dialog" aria-modal="true" aria-label="Menü">
+  <button class="nav-drawer-close" aria-label="Menü schließen" data-close-nav><span aria-hidden="true">×</span></button>
   <div class="nav-drawer-logo">Erika Kapeller <span>Coaching</span></div>
-  <nav class="nav-drawer-links">
+  <nav class="nav-drawer-links" aria-label="Mobile Navigation">
     <a href="#angebote" data-close-nav>Angebote</a>
     <a href="#ueber" data-close-nav>Über mich</a>
     <a href="#methode" data-close-nav>Methode</a>
@@ -46,6 +46,8 @@
 </aside>
 
 <div class="page">
+
+<main>
 
 <!-- HERO -->
 <section id="top" class="hero">
@@ -270,6 +272,8 @@
     </div>
   </div>
 </section>
+
+</main>
 
 <footer class="site-footer">
   <div class="footer-inner">
