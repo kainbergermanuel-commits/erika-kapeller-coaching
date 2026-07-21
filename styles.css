@@ -67,7 +67,14 @@ img { max-width: 100%; display: block; }
 .section-intro { max-width: 620px; margin-bottom: 52px; }
 
 /* NAV */
-.site-header { position: sticky; top: 0; z-index: 50; padding: 20px 28px 0; }
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 20px 28px 0;
+}
 
 .navbar {
   max-width: 1080px;
