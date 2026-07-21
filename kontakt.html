@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kontakt — Erika Kapeller Coaching</title>
+<meta name="description" content="Nimm Kontakt mit Erika Kapeller auf: kostenloses Klarheitsgespräch buchen, Nachricht schreiben oder das Gratis-E-Book zur Gewaltfreien Kommunikation anfordern.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+<!-- NAV -->
+<header class="site-header">
+  <nav class="navbar" aria-label="Hauptnavigation">
+    <a href="index.html" class="logo">
+      Erika Kapeller
+      <span class="logo-tag">Coaching</span>
+    </a>
+    <div class="nav-links" data-desktop-nav>
+      <a href="angebote.html">Angebote</a>
+      <a href="ueber-mich.html">Über mich</a>
+      <a href="methode.html">Methode</a>
+      <a href="stimmen.html">Stimmen</a>
+      <a href="kontakt.html" class="nav-cta">Kostenloses Gespräch</a>
+    </div>
+    <button class="nav-toggle" aria-label="Menü öffnen" aria-expanded="false" data-mobile-toggle>
+      <span class="nav-toggle-icon" aria-hidden="true">≡</span>
+    </button>
+  </nav>
+</header>
+
+<div class="nav-overlay" data-mobile-overlay aria-hidden="true"></div>
+<aside class="nav-drawer" data-mobile-menu role="dialog" aria-modal="true" aria-label="Menü">
+  <button class="nav-drawer-close" aria-label="Menü schließen" data-close-nav><span aria-hidden="true">×</span></button>
+  <div class="nav-drawer-logo">Erika Kapeller <span>Coaching</span></div>
+  <nav class="nav-drawer-links" aria-label="Mobile Navigation">
+    <a href="angebote.html" data-close-nav>Angebote</a>
+    <a href="ueber-mich.html" data-close-nav>Über mich</a>
+    <a href="methode.html" data-close-nav>Methode</a>
+    <a href="stimmen.html" data-close-nav>Stimmen</a>
+  </nav>
+  <a href="kontakt.html" class="nav-drawer-cta" data-close-nav>→ Kostenloses Gespräch</a>
+</aside>
+
+<div class="page">
+<main id="main">
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <nav class="breadcrumb" aria-label="Brotkrumen">
+    <a href="index.html">Start</a>
+    <span class="sep" aria-hidden="true">/</span>
+    <span aria-current="page">Kontakt</span>
+  </nav>
+  <span class="eyebrow">Kontakt</span>
+  <h1 class="page-title">Lass uns ins <em>Gespräch</em> kommen</h1>
+  <p class="page-lead">Ob kostenloses Klarheitsgespräch, eine Frage zu meinen Angeboten oder eine Vortragsanfrage – ich freue mich, von dir zu hören.</p>
+</section>
+
+<!-- KONTAKT GRID -->
+<section class="band band-tight">
+  <div class="contact-grid">
+
+    <!-- FORMULAR -->
+    <div class="form-card">
+      <form class="form" data-contact-form novalidate>
+        <div class="form-row">
+          <div class="field">
+            <label for="name">Name <span class="req" aria-hidden="true">*</span></label>
+            <input type="text" id="name" name="name" autocomplete="name" placeholder="Dein Name" required>
+          </div>
+          <div class="field">
+            <label for="email">E-Mail <span class="req" aria-hidden="true">*</span></label>
+            <input type="email" id="email" name="email" autocomplete="email" placeholder="name@beispiel.at" required>
+          </div>
+        </div>
+        <div class="field">
+          <label for="thema">Worum geht es?</label>
+          <select id="thema" name="thema">
+            <option>Kostenloses Klarheitsgespräch</option>
+            <option>Einzel-Coaching</option>
+            <option>Paar-Coaching</option>
+            <option>Familien-Coaching</option>
+            <option>Lern- &amp; Legasthenie-Training</option>
+            <option>Vortrag / Workshop</option>
+            <option>Etwas anderes</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="nachricht">Nachricht <span class="req" aria-hidden="true">*</span></label>
+          <textarea id="nachricht" name="nachricht" placeholder="Erzähl mir kurz, was dich beschäftigt …" required></textarea>
+        </div>
+        <p class="form-note">Mit dem Absenden erklärst du dich einverstanden, dass ich deine Angaben zur Bearbeitung deiner Anfrage verwende. Mehr dazu in der <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
+        <button type="submit" class="btn btn-primary">Nachricht senden</button>
+      </form>
+
+      <div class="form-success" data-form-success role="status">
+        <span class="check" aria-hidden="true">✓</span>
+        <div>
+          <h3>Vielen Dank!</h3>
+          <p>Deine Nachricht ist angekommen. Ich melde mich so bald wie möglich bei dir – in der Regel innerhalb von ein bis zwei Werktagen.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- INFO ASIDE -->
+    <aside class="info-list" aria-label="Weitere Kontaktmöglichkeiten">
+      <div class="info-card">
+        <span class="info-icon" aria-hidden="true">📅</span>
+        <div>
+          <h3>Termin buchen</h3>
+          <p>Sichere dir direkt dein kostenloses Klarheitsgespräch.</p>
+          <a href="https://calendly.com/erikakapeller" target="_blank" rel="noopener">Zum Kalender →</a>
+        </div>
+      </div>
+      <div class="info-card">
+        <span class="info-icon" aria-hidden="true">✉️</span>
+        <div>
+          <h3>E-Mail</h3>
+          <a href="mailto:mail@erikakapeller.com">mail@erikakapeller.com</a>
+        </div>
+      </div>
+      <div class="info-card">
+        <span class="info-icon" aria-hidden="true">💻</span>
+        <div>
+          <h3>Vor Ort &amp; online</h3>
+          <p>Coaching ist persönlich vor Ort oder bequem online per Video möglich – ganz wie es für dich passt.</p>
+        </div>
+      </div>
+      <div class="info-card">
+        <span class="info-icon" aria-hidden="true">🔗</span>
+        <div>
+          <h3>Social Media</h3>
+          <p>
+            <a href="https://www.instagram.com/erikakapeller/" target="_blank" rel="noopener">Instagram</a> ·
+            <a href="https://www.linkedin.com/in/erika-kapeller-3380021b2/" target="_blank" rel="noopener">LinkedIn</a> ·
+            <a href="https://www.youtube.com/channel/UCRWZBGDhrinW2wrE5I-bDhQ" target="_blank" rel="noopener">YouTube</a>
+          </p>
+        </div>
+      </div>
+    </aside>
+
+  </div>
+</section>
+
+<!-- GESCHENK / E-BOOK -->
+<section class="section band-tight" id="ebook">
+  <div class="gift-box">
+    <div>
+      <span class="eyebrow">Mein Geschenk für dich</span>
+      <h2 class="gift-title">Gratis E-Book: Gewaltfreie Kommunikation in der Familie</h2>
+      <p class="gift-text">Ein wertvolles Tool zur liebevollen Konfliktlösung. Schreib mir kurz über das Formular oben mit dem Betreff „E-Book“ – und mein Geschenk landet in Kürze in deinem Postfach.</p>
+      <a href="mailto:mail@erikakapeller.com?subject=E-Book%20GFK%20in%20der%20Familie" class="btn btn-primary">E-Book per E-Mail anfordern</a>
+    </div>
+    <div class="gift-cover" aria-hidden="true">E-Book Cover</div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-name">Erika Kapeller</div>
+      <div class="footer-tag">Familien-, Paar- &amp; Lern-Coaching</div>
+      <p class="footer-blurb">Mit neuem Mut zurück zu Freude, Leichtigkeit und Verbindung – einfühlsam und wertschätzend begleitet.</p>
+    </div>
+    <nav class="footer-col" aria-label="Seiten">
+      <h2 class="footer-heading">Seiten</h2>
+      <a href="angebote.html">Angebote</a>
+      <a href="ueber-mich.html">Über mich</a>
+      <a href="methode.html">Methode</a>
+      <a href="stimmen.html">Stimmen</a>
+      <a href="kontakt.html">Kontakt</a>
+    </nav>
+    <nav class="footer-col" aria-label="Rechtliches">
+      <h2 class="footer-heading">Rechtliches</h2>
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+    </nav>
+    <div class="footer-col">
+      <h2 class="footer-heading">Kontakt</h2>
+      <a href="mailto:mail@erikakapeller.com">mail@erikakapeller.com</a>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/erikakapeller/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.linkedin.com/in/erika-kapeller-3380021b2/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.youtube.com/channel/UCRWZBGDhrinW2wrE5I-bDhQ" target="_blank" rel="noopener">YouTube</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copy">© 2026 Erika Kapeller · Alle Rechte vorbehalten</div>
+</footer>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
