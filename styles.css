@@ -84,10 +84,10 @@ img { max-width: 100%; display: block; }
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  background: linear-gradient(120deg, rgba(250,240,229,0.94) 0%, rgba(236,213,193,0.9) 100%);
-  backdrop-filter: blur(10px) saturate(140%);
-  -webkit-backdrop-filter: blur(10px) saturate(140%);
-  border: 1px solid rgba(255,255,255,0.55);
+  background: rgba(255,251,245,0.75);
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  border: 1px solid rgba(255,255,255,0.5);
   border-radius: 999px;
   box-shadow: 0 10px 34px -18px rgba(46,40,35,0.35);
 }
@@ -179,7 +179,9 @@ img { max-width: 100%; display: block; }
   bottom: 0;
   z-index: 61;
   width: min(78vw, 320px);
-  background: linear-gradient(165deg, var(--accent) 0%, var(--accent-deep) 100%);
+  background: linear-gradient(165deg, rgba(194,103,63,0.88) 0%, rgba(168,83,47,0.92) 100%);
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
   color: #fff;
   padding: 28px 26px;
   display: flex;
