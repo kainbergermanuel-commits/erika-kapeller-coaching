@@ -1,6 +1,6 @@
 :root {
-  --accent: #c2673f;
-  --accent-deep: #a8532f;
+  --accent: #d4692a;
+  --accent-deep: #b4531a;
   --ink: #2e2823;
   --muted: #6f665c;
   --bg: #faf6f0;
@@ -134,7 +134,7 @@ img { max-width: 100%; display: block; }
   transition: background .3s ease, transform .3s ease, box-shadow .3s ease;
   white-space: nowrap;
 }
-.nav-cta:hover { background: var(--accent-deep); color: #fff; transform: translateY(-2px); box-shadow: 0 10px 22px -10px rgba(168,83,47,0.55); }
+.nav-cta:hover { background: var(--accent-deep); color: #fff; transform: translateY(-2px); box-shadow: 0 10px 22px -10px rgba(180,83,26,0.55); }
 
 .nav-toggle {
   display: none;
@@ -179,7 +179,7 @@ img { max-width: 100%; display: block; }
   bottom: 0;
   z-index: 61;
   width: min(78vw, 320px);
-  background: linear-gradient(165deg, rgba(194,103,63,0.88) 0%, rgba(168,83,47,0.92) 100%);
+  background: linear-gradient(165deg, rgba(212,105,42,0.88) 0%, rgba(180,83,26,0.92) 100%);
   backdrop-filter: blur(18px) saturate(160%);
   -webkit-backdrop-filter: blur(18px) saturate(160%);
   color: #fff;
@@ -288,7 +288,7 @@ body.nav-open { overflow: hidden; }
   margin-bottom: 26px;
   text-wrap: balance;
 }
-.hero-title em { font-style: italic; color: var(--accent); }
+.hero-title em { font-style: normal; color: var(--accent); }
 
 .hero-text {
   font-size: clamp(17px,1.5vw,19px);
@@ -312,9 +312,9 @@ body.nav-open { overflow: hidden; }
   padding: 15px 30px;
   background: var(--accent);
   color: #fff;
-  box-shadow: 0 12px 30px -12px rgba(168,83,47,0.6);
+  box-shadow: 0 12px 30px -12px rgba(180,83,26,0.6);
 }
-.btn-primary:hover { background: var(--accent-deep); color: #fff; transform: translateY(-3px); box-shadow: 0 18px 36px -14px rgba(168,83,47,0.7); }
+.btn-primary:hover { background: var(--accent-deep); color: #fff; transform: translateY(-3px); box-shadow: 0 18px 36px -14px rgba(180,83,26,0.7); }
 
 .btn-ghost {
   padding: 15px 26px;
@@ -356,7 +356,7 @@ body.nav-open { overflow: hidden; }
   clip-path: polygon(15% 0%, 85% 0%, 100% 30%, 100% 78%, 50% 100%, 0% 78%, 0% 30%);
   transform: translate(-50%, -50%) rotate(-6deg);
   z-index: 0;
-  box-shadow: 0 30px 60px -28px rgba(168,83,47,0.55);
+  box-shadow: 0 30px 60px -28px rgba(180,83,26,0.55);
 }
 
 .hero-image {
@@ -724,7 +724,7 @@ body.nav-open { overflow: hidden; }
   margin-bottom: 20px;
   text-wrap: balance;
 }
-.page-title em { font-style: italic; color: var(--accent); }
+.page-title em { font-style: normal; color: var(--accent); }
 .page-lead {
   font-size: clamp(17px,1.6vw,20px);
   line-height: 1.6;
@@ -877,7 +877,7 @@ body.nav-open { overflow: hidden; }
   outline: none;
   background: #fff;
   border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(194,103,63,0.15);
+  box-shadow: 0 0 0 3px rgba(212,105,42,0.15);
 }
 .field input::placeholder, .field textarea::placeholder { color: #b3a795; }
 .form-note { font-size: 13px; color: var(--muted); line-height: 1.5; }
@@ -993,3 +993,78 @@ button:focus-visible {
     scroll-behavior: auto !important;
   }
 }
+
+
+/* ---------- Überarbeitung 11/2026 ---------- */
+
+/* Profilfoto: Oval ohne Rahmen, ohne farbige Form dahinter */
+.hero-shape { display: none; }
+.hero-image {
+  width: min(84%, 340px);
+  aspect-ratio: 4 / 5;
+  border: none;
+  background: transparent;
+  clip-path: none;
+  border-radius: 50%;
+  box-shadow: 0 24px 50px -28px rgba(46,40,35,0.35);
+}
+.hero-badge { bottom: 2%; }
+
+/* SPIRIT-Kasten hell statt schwarz */
+.spirit-box {
+  background: linear-gradient(135deg, #fbf3e8 0%, #f6e7d6 100%);
+  color: var(--ink);
+  border: 1px solid var(--line);
+}
+.spirit-bg { opacity: 0.10; mix-blend-mode: multiply; filter: grayscale(.4) sepia(.25); }
+.spirit-eyebrow { color: var(--accent); }
+.spirit-lead { color: var(--muted); }
+.spirit-card { background: rgba(255,255,255,0.72); border-color: var(--line); }
+.spirit-card:hover { border-color: var(--accent); background: #fff; }
+.spirit-letter { color: var(--accent); }
+.spirit-desc { color: var(--muted); }
+
+/* ---------- Prüfhinweise (vorübergehend) ----------
+   Alles mit data-pruef ist nur für die Abnahme da und wird danach gelöscht. */
+.pruef {
+  display: block;
+  margin: 14px 0 18px;
+  padding: 12px 16px;
+  border: 1.5px dashed #e8a46f;
+  border-radius: 14px;
+  background: #fff4e9;
+  color: #6b4426;
+  font-size: 14px;
+  line-height: 1.55;
+  text-align: left;
+  font-style: normal;
+}
+.pruef b {
+  display: inline-block;
+  margin-right: 6px;
+  padding: 1px 9px;
+  border-radius: 999px;
+  background: #e8a46f;
+  color: #fff;
+  font-size: 11px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.spirit-content > .pruef, .spirit-grid + .pruef { grid-column: 1 / -1; }
+.pruef-pille {
+  position: fixed;
+  left: 16px;
+  bottom: 16px;
+  z-index: 60;
+  padding: 9px 16px;
+  border-radius: 999px;
+  background: #6b4426;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  box-shadow: 0 10px 24px -10px rgba(46,40,35,.5);
+}
+.pruef-pille:hover { color: #fff; background: #4f3119; }
+
+/* Keine einzelnen Wörter in der letzten Zeile (Wunsch aus den Notizen) */
+p, .section-lead, .page-lead, .lead { text-wrap: pretty; }

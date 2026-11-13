@@ -36,6 +36,12 @@
     form.addEventListener('submit', (e) => {
       e.preventDefault();
       if (!form.reportValidity()) return;
+      // Die Seite hat keinen Server: Wir öffnen das Mailprogramm mit dem fertigen Text.
+      const wert = (n) => (form.elements[n] ? form.elements[n].value.trim() : '');
+      const betreff = 'Anfrage: ' + wert('thema');
+      const text = wert('nachricht') + '\n\n' + wert('name') + '\n' + wert('email');
+      window.location.href = 'mailto:mail@erikakapeller.com?subject=' + encodeURIComponent(betreff)
+        + '&body=' + encodeURIComponent(text);
       form.hidden = true;
       if (success) {
         success.classList.add('is-visible');
@@ -44,4 +50,15 @@
       }
     });
   }
+})();
+
+// Vorübergehend: Hinweis-Pille auf das Änderungsprotokoll (nach der Abnahme löschen).
+(function () {
+  if (/aenderungen\.html$/.test(location.pathname)) return;
+  var a = document.createElement('a');
+  a.href = 'aenderungen.html';
+  a.className = 'pruef-pille';
+  a.setAttribute('data-pruef', '');
+  a.textContent = 'Überarbeitung 11/2026 · Änderungen ansehen';
+  document.body.appendChild(a);
 })();
