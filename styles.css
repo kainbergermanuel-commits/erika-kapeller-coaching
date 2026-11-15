@@ -1171,3 +1171,11 @@ p, .section-lead, .page-lead, .lead { text-wrap: pretty; }
   .stimme-gross { padding-top: 58px; }
   .stimme-gross-zeichen { top: -22px; font-size: 130px; }
 }
+
+/* Angebote: Sprungleiste, gleiche Chips wie der Stimmen-Filter */
+.angebote-sprung { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 26px; }
+a.filter-chip { text-decoration: none; }
+/* Leitgedanke auf "Über mich" */
+.leitgedanke { margin: 26px 0 24px; }
+.stimme-gross.leitgedanke p { font-size: clamp(19px,2.2vw,23px); }
+.lead mark, .ueber-text-main mark, .hero-text mark { background: linear-gradient(180deg, transparent 30%, rgba(240,170,110,.28) 30%, rgba(240,170,110,.28) 92%, transparent 92%); color: inherit; padding: 0 .15em; border-radius: 3px; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
