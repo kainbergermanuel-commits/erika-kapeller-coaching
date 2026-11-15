@@ -1133,12 +1133,14 @@ p, .section-lead, .page-lead, .lead { text-wrap: pretty; }
 .filter-chip:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 .testimonial-card[hidden] { display: none; }
 .testimonial-card.einblenden { animation: stimmeEin .45s cubic-bezier(.22,1,.36,1); }
-@keyframes stimmeEin { from { opacity: 0; transform: translateY(10px); } }
+@keyframes stimmeEin { from { opacity: 0; } }
 
-/* Begriffe mit Erklärung */
-.begriff { position: relative; display: inline; }
+/* Begriffe mit Erklärung
+   Der Tooltip wird per Skript an <body> gehängt und fest positioniert.
+   So können ihn weder Spalten noch transformierte Karten verschieben oder abschneiden. */
 .begriff-wort {
-  font: inherit; color: var(--accent-deep); font-weight: 600; background: none; border: 0; padding: 0; cursor: help;
+  display: inline;
+  color: var(--accent-deep); font-weight: 600; cursor: help;
   text-decoration: underline dotted var(--accent); text-decoration-thickness: 1.5px; text-underline-offset: 3px;
 }
 .begriff-wort:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 3px; }
@@ -1158,19 +1160,12 @@ p, .section-lead, .page-lead, .lead { text-wrap: pretty; }
   border: 7px solid transparent; border-top-color: var(--ink);
 }
 .begriff-tip.unten::after { top: auto; bottom: 100%; border-top-color: transparent; border-bottom-color: var(--ink); }
-.begriff.offen .begriff-tip { opacity: 1; visibility: visible; }
-.testimonials-cols { overflow: visible; }
+.begriff-tip.is-offen { opacity: 1; visibility: visible; }
+/* Ohne Skript bleibt der Tooltip im Text verborgen */
+.begriff > .begriff-tip { display: none; }
 @media (prefers-reduced-motion: reduce) { .testimonial-card.einblenden { animation: none; } .begriff-tip { transition: none; } }
-
-/* Kein transform an Karten mit Tooltips: sonst rechnet position:fixed relativ zur Karte */
+/* Stimmen-Karten bewegen sich beim Darüberfahren nicht, nur Schatten und Rand */
 .testimonials-cols .testimonial-card:hover { transform: none; box-shadow: 0 20px 38px -24px rgba(46,40,35,0.3); border-color: rgba(212,105,42,.35); }
-@keyframes stimmeEin { from { opacity: 0; } }
-
-.begriff-wort { display: inline; }
-@media (max-width: 640px) {
-  .stimme-gross { padding-top: 58px; }
-  .stimme-gross-zeichen { top: -22px; font-size: 130px; }
-}
 
 /* Angebote: Sprungleiste, gleiche Chips wie der Stimmen-Filter */
 .angebote-sprung { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 26px; }

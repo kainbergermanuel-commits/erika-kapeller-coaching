@@ -87,49 +87,59 @@
 })();
 
 // Begriffe mit Erklärung: Hover, Fokus oder Antippen zeigt den Tooltip.
-// Er ist fest über der Seite positioniert, damit ihn keine Spalte abschneidet.
+// Die Tooltips wandern an <body>, damit kein Elternelement (Spalten, Karten mit
+// transform oder backdrop-filter) ihre feste Position verfälscht.
 (function () {
-  var begriffe = document.querySelectorAll('.begriff');
+  var begriffe = Array.prototype.slice.call(document.querySelectorAll('.begriff'));
   if (!begriffe.length) return;
-  function zeigen(b) {
-    begriffe.forEach(function (x) { if (x !== b) x.classList.remove('offen'); });
+  var paare = begriffe.map(function (b) {
     var tip = b.querySelector('.begriff-tip');
-    var wort = b.querySelector('.begriff-wort').getBoundingClientRect();
-    b.classList.add('offen');
-    startY = window.scrollY;
+    document.body.appendChild(tip);
+    return { wort: b.querySelector('.begriff-wort'), tip: tip };
+  });
+  var offen = null, startY = 0;
+
+  function schliessen() {
+    if (offen) offen.tip.classList.remove('is-offen');
+    offen = null;
+  }
+  function zeigen(p) {
+    if (offen && offen !== p) schliessen();
+    var tip = p.tip;
+    // Bei umbrechenden Begriffen an der ersten Zeile ausrichten
+    var r = p.wort.getClientRects()[0] || p.wort.getBoundingClientRect();
+    tip.classList.add('is-offen');
     var w = tip.offsetWidth, h = tip.offsetHeight;
-    var mitte = wort.left + wort.width / 2;
+    var mitte = r.left + r.width / 2;
     var links = Math.max(12, Math.min(mitte - w / 2, window.innerWidth - w - 12));
-    var oben = wort.top - h - 10, unten = oben < 80;
-    if (unten) oben = wort.bottom + 10;
+    var oben = r.top - h - 10, unten = oben < 80;
+    if (unten) oben = r.bottom + 10;
     tip.classList.toggle('unten', unten);
     tip.style.left = links + 'px';
     tip.style.top = oben + 'px';
-    tip.style.setProperty('--pfeil-x', (mitte - links) + 'px');
+    tip.style.setProperty('--pfeil-x', Math.max(14, Math.min(w - 14, mitte - links)) + 'px');
+    offen = p; startY = window.scrollY;
   }
-  function alleZu() { begriffe.forEach(function (x) { x.classList.remove('offen'); }); }
-  begriffe.forEach(function (b) {
-    var wort = b.querySelector('.begriff-wort');
-    b.addEventListener('mouseenter', function () { zeigen(b); });
-    b.addEventListener('mouseleave', function () { if (document.activeElement !== wort) b.classList.remove('offen'); });
-    wort.addEventListener('focus', function () { zeigen(b); });
-    wort.addEventListener('blur', function () { b.classList.remove('offen'); });
-    wort.addEventListener('keydown', function (e) {
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); b.classList.contains('offen') ? b.classList.remove('offen') : zeigen(b); }
-    });
-    wort.addEventListener('click', function (e) {
+  paare.forEach(function (p) {
+    p.wort.addEventListener('mouseenter', function () { zeigen(p); });
+    p.wort.addEventListener('mouseleave', function () { if (document.activeElement !== p.wort && offen === p) schliessen(); });
+    p.wort.addEventListener('focus', function () { zeigen(p); });
+    p.wort.addEventListener('blur', function () { if (offen === p) schliessen(); });
+    p.wort.addEventListener('click', function (e) {
       e.stopPropagation();
-      if (b.classList.contains('offen') && e.pointerType !== 'mouse') b.classList.remove('offen'); else zeigen(b);
+      if (offen === p && e.pointerType !== 'mouse') schliessen(); else zeigen(p);
+    });
+    p.wort.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); offen === p ? schliessen() : zeigen(p); }
     });
   });
-  document.addEventListener('click', alleZu);
+  document.addEventListener('click', schliessen);
+  window.addEventListener('resize', schliessen);
   // Erst bei spürbarem Scrollen schließen (kleine Ruckler beim Antippen ignorieren)
-  var startY = null;
   window.addEventListener('scroll', function () {
-    var offen = document.querySelector('.begriff.offen');
-    if (!offen) { startY = null; return; }
-    if (startY === null) startY = window.scrollY;
-    if (Math.abs(window.scrollY - startY) > 40) { alleZu(); startY = null; }
+    if (offen && Math.abs(window.scrollY - startY) > 40) schliessen();
   }, { passive: true });
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { alleZu(); if (document.activeElement) document.activeElement.blur(); } });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && offen) { var w = offen.wort; schliessen(); w.blur(); }
+  });
 })();
