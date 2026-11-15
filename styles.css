@@ -1076,3 +1076,98 @@ p, .section-lead, .page-lead, .lead { text-wrap: pretty; }
 .offer-photo { display: block; width: 100%; height: auto; max-width: 560px; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 18px; margin: 4px 0 18px; }
 
 .pruef { break-inside: avoid; }
+
+/* ---------- Stimmen: aufgepeppt (11/2026) ---------- */
+.testimonial-card { margin: 0 0 20px; position: relative; }
+.testimonial-card blockquote, .stimme-gross blockquote { margin: 0; }
+.testimonial-card::after {
+  content: '“';
+  position: absolute; top: 6px; right: 22px;
+  font-family: 'Newsreader', serif; font-size: 84px; line-height: 1;
+  color: var(--accent); opacity: .12; pointer-events: none;
+}
+.testimonial-card mark, .stimme-gross mark {
+  background: linear-gradient(180deg, transparent 30%, rgba(240,170,110,.28) 30%, rgba(240,170,110,.28) 92%, transparent 92%);
+  color: inherit; padding: 0 .15em; border-radius: 3px;
+  -webkit-box-decoration-break: clone; box-decoration-break: clone;
+}
+.testimonial-foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 12px; }
+.testimonial-foot .testimonial-name::before { content: '— '; }
+.testimonial-kat {
+  font-size: 11.5px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+  color: var(--accent-deep); background: rgba(212,105,42,.10);
+  padding: 4px 10px; border-radius: 999px;
+}
+
+/* Hervorgehobene Stimme */
+.stimme-gross {
+  position: relative; margin: 0 0 30px;
+  padding: clamp(30px,5vw,48px) clamp(26px,6vw,64px);
+  border-radius: 28px;
+  background: linear-gradient(140deg, #fff 0%, #fbefe3 100%);
+  border: 1px solid var(--line);
+  box-shadow: 0 30px 60px -38px rgba(180,83,26,.45);
+  overflow: hidden;
+}
+.stimme-gross-zeichen {
+  position: absolute; left: clamp(10px,3vw,26px); top: -18px;
+  font-family: 'Newsreader', serif; font-size: 170px; line-height: 1; color: var(--accent); opacity: .16;
+}
+.stimme-gross p {
+  position: relative; font-family: 'Newsreader', serif; font-size: clamp(20px,2.4vw,26px); line-height: 1.5;
+  color: var(--ink); margin-bottom: 20px; text-wrap: pretty;
+}
+
+/* Filter */
+.stimmen-filter { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 0 0 26px; }
+.filter-chip {
+  font: inherit; font-size: 14px; font-weight: 600; cursor: pointer;
+  color: var(--muted); background: #fff; border: 1px solid var(--line);
+  padding: 8px 16px; border-radius: 999px;
+  transition: background .2s, color .2s, border-color .2s, transform .2s;
+}
+.filter-chip span { font-weight: 700; color: var(--accent); margin-left: 4px; }
+.filter-chip:hover { border-color: var(--accent); color: var(--ink); transform: translateY(-1px); }
+.filter-chip.is-aktiv { background: var(--accent); border-color: var(--accent); color: #fff; }
+.filter-chip.is-aktiv span { color: #fff; opacity: .85; }
+.filter-chip:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.testimonial-card[hidden] { display: none; }
+.testimonial-card.einblenden { animation: stimmeEin .45s cubic-bezier(.22,1,.36,1); }
+@keyframes stimmeEin { from { opacity: 0; transform: translateY(10px); } }
+
+/* Begriffe mit Erklärung */
+.begriff { position: relative; display: inline; }
+.begriff-wort {
+  font: inherit; color: var(--accent-deep); font-weight: 600; background: none; border: 0; padding: 0; cursor: help;
+  text-decoration: underline dotted var(--accent); text-decoration-thickness: 1.5px; text-underline-offset: 3px;
+}
+.begriff-wort:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 3px; }
+.begriff-tip {
+  position: fixed; z-index: 80; left: 0; top: 0;
+  width: max-content; max-width: min(270px, calc(100vw - 32px));
+  padding: 11px 14px; border-radius: 12px;
+  background: var(--ink); color: #fbf6f0;
+  font-family: 'Mulish', system-ui, sans-serif; font-style: normal; font-weight: 500;
+  font-size: 13.5px; line-height: 1.5; text-align: left;
+  box-shadow: 0 16px 34px -14px rgba(46,40,35,.55);
+  opacity: 0; visibility: hidden; pointer-events: none;
+  transition: opacity .18s ease, visibility .18s;
+}
+.begriff-tip::after {
+  content: ''; position: absolute; left: var(--pfeil-x, 50%); top: 100%; transform: translateX(-50%);
+  border: 7px solid transparent; border-top-color: var(--ink);
+}
+.begriff-tip.unten::after { top: auto; bottom: 100%; border-top-color: transparent; border-bottom-color: var(--ink); }
+.begriff.offen .begriff-tip { opacity: 1; visibility: visible; }
+.testimonials-cols { overflow: visible; }
+@media (prefers-reduced-motion: reduce) { .testimonial-card.einblenden { animation: none; } .begriff-tip { transition: none; } }
+
+/* Kein transform an Karten mit Tooltips: sonst rechnet position:fixed relativ zur Karte */
+.testimonials-cols .testimonial-card:hover { transform: none; box-shadow: 0 20px 38px -24px rgba(46,40,35,0.3); border-color: rgba(212,105,42,.35); }
+@keyframes stimmeEin { from { opacity: 0; } }
+
+.begriff-wort { display: inline; }
+@media (max-width: 640px) {
+  .stimme-gross { padding-top: 58px; }
+  .stimme-gross-zeichen { top: -22px; font-size: 130px; }
+}
