@@ -1223,3 +1223,19 @@ a.filter-chip { text-decoration: none; }
   .offer-photo { float: right; width: 300px; aspect-ratio: 4 / 3; margin: 6px 0 14px 28px; }
   .offer-detail > div::after { content: ''; display: block; clear: both; }
 }
+
+/* Linien-Symbole statt Emojis (Über mich) */
+.linien-icon {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 44px; height: 44px; border-radius: 50%;
+  background: rgba(212,105,42,.10); color: var(--accent);
+  font-size: 0; flex-shrink: 0;
+}
+.linien-icon svg { width: 22px; height: 22px; }
+/* Leitgedanke: Anführungszeichen nicht über dem Text */
+.stimme-gross.leitgedanke { padding-left: clamp(48px, 6vw, 72px); }
+.stimme-gross.leitgedanke .stimme-gross-zeichen { left: 14px; }
+@media (max-width: 640px) {
+  .stimme-gross.leitgedanke { padding: 30px 24px; }
+  .stimme-gross.leitgedanke .stimme-gross-zeichen { display: none; }
+}
