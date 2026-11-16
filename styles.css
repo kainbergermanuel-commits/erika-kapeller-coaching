@@ -1355,3 +1355,10 @@ a.filter-chip { text-decoration: none; }
 .logo:hover .logo-tag-hover, .logo:focus-visible .logo-tag-hover { opacity: 1; transform: none; }
 .logo:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 6px; }
 @media (prefers-reduced-motion: reduce) { .logo-name, .logo-tag-ruhe, .logo-tag-hover { transition: none; } }
+
+/* Platz unter dem Footer, solange die schwebenden Prüf-Knöpfe da sind */
+body:has(.farbwahl) .site-footer, body:has(.pruef-pille) .site-footer { padding-bottom: 72px; }
+@media (max-width: 640px) {
+  .farbwahl { bottom: 66px; }
+  body:has(.farbwahl) .site-footer { padding-bottom: 124px; }
+}
