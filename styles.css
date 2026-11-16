@@ -1174,3 +1174,52 @@ a.filter-chip { text-decoration: none; }
 .leitgedanke { margin: 26px 0 24px; }
 .stimme-gross.leitgedanke p { font-size: clamp(19px,2.2vw,23px); }
 .lead mark, .ueber-text-main mark, .hero-text mark { background: linear-gradient(180deg, transparent 30%, rgba(240,170,110,.28) 30%, rgba(240,170,110,.28) 92%, transparent 92%); color: inherit; padding: 0 .15em; border-radius: 3px; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+
+/* E-Book als Buch: leicht gedreht, mit Buchrücken, Seitenschnitt und Schatten */
+.gift-cover.buch {
+  width: 300px; box-shadow: none; overflow: visible; border-radius: 0;
+  perspective: 1100px; padding: 10px 26px 26px 6px;
+}
+.buch-koerper {
+  position: relative;
+  transform: rotateY(-24deg) rotateX(4deg);
+  transform-style: preserve-3d;
+  transition: transform .6s cubic-bezier(.22,1,.36,1);
+}
+.gift-box:hover .buch-koerper { transform: rotateY(-12deg) rotateX(2deg); }
+.buch-koerper img {
+  display: block; width: 100%; height: auto;
+  border-radius: 3px 8px 8px 3px;
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,.12),
+    18px 22px 34px -12px rgba(46,40,35,.45),
+    4px 4px 10px -4px rgba(46,40,35,.3);
+}
+/* Buchrücken: Falz und Lichtkante links */
+.buch-koerper::before {
+  content: ''; position: absolute; z-index: 2; inset: 0 auto 0 0; width: 16px;
+  border-radius: 3px 0 0 3px;
+  background: linear-gradient(90deg, rgba(0,0,0,.28) 0%, rgba(255,255,255,.28) 35%, rgba(0,0,0,.12) 60%, transparent 100%);
+  pointer-events: none;
+}
+/* Seitenschnitt rechts */
+.buch-koerper::after {
+  content: ''; position: absolute; z-index: -1; top: 4px; bottom: 4px; right: -15px; width: 16px;
+  border-radius: 0 3px 3px 0;
+  background: repeating-linear-gradient(90deg, #fbf6ee 0 1px, #e8ddcd 1px 2px);
+  transform: rotateY(60deg); transform-origin: left center;
+  box-shadow: 4px 6px 10px -6px rgba(46,40,35,.4);
+}
+@media (prefers-reduced-motion: reduce) { .buch-koerper { transition: none; } }
+@media (max-width: 760px) { .gift-cover.buch { width: 220px; margin: 0 auto; } }
+
+/* Angebote: Nummern statt Emojis (wie die Methodenliste) */
+.offer-detail-icon.offer-nr {
+  font-family: 'Newsreader', serif; font-size: 26px; font-weight: 500;
+  color: var(--accent); letter-spacing: .02em;
+}
+/* Angebote: Foto am Desktop rechts neben der Liste statt in voller Breite */
+@media (min-width: 900px) {
+  .offer-photo { float: right; width: 300px; aspect-ratio: 4 / 3; margin: 6px 0 14px 28px; }
+  .offer-detail > div::after { content: ''; display: block; clear: both; }
+}
