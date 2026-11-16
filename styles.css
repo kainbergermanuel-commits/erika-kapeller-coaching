@@ -1362,3 +1362,7 @@ body:has(.farbwahl) .site-footer, body:has(.pruef-pille) .site-footer { padding-
   .farbwahl { bottom: 66px; }
   body:has(.farbwahl) .site-footer { padding-bottom: 124px; }
 }
+
+/* Überschriften ausgewogen umbrechen, keine einzelnen Wörter in der letzten Zeile */
+h1, h2, h3, .section-title, .page-title, .hero-title, .gift-title { text-wrap: balance; }
+.section-title em { font-style: normal; color: var(--accent); }
