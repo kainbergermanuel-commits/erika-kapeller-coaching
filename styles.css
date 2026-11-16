@@ -1337,3 +1337,21 @@ a.filter-chip { text-decoration: none; }
 .farbwahl-option small { margin-left: auto; font-size: 11px; color: var(--muted); font-weight: 600; }
 .farbwahl-hinweis { font-size: 12px; line-height: 1.45; color: var(--muted); margin: 8px 6px 2px; }
 .farbwahl-knopf:focus-visible, .farbwahl-option:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* Logo: beim Darüberfahren wird aus "Coaching" ein Rückweg, der Name bekommt eine feine Linie */
+.logo-name {
+  background: linear-gradient(var(--accent), var(--accent)) left 100% / 0 1px no-repeat;
+  padding-bottom: 2px;
+  transition: background-size .45s cubic-bezier(.22,1,.36,1), color .3s ease;
+}
+.logo-tag { display: inline-grid; }
+.logo-tag-ruhe, .logo-tag-hover {
+  grid-area: 1 / 1;
+  transition: opacity .3s ease, transform .4s cubic-bezier(.22,1,.36,1);
+}
+.logo-tag-hover { opacity: 0; transform: translateX(-6px); white-space: nowrap; }
+.logo:hover .logo-name, .logo:focus-visible .logo-name { background-size: 100% 1px; }
+.logo:hover .logo-tag-ruhe, .logo:focus-visible .logo-tag-ruhe { opacity: 0; transform: translateX(6px); }
+.logo:hover .logo-tag-hover, .logo:focus-visible .logo-tag-hover { opacity: 1; transform: none; }
+.logo:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 6px; }
+@media (prefers-reduced-motion: reduce) { .logo-name, .logo-tag-ruhe, .logo-tag-hover { transition: none; } }
