@@ -52,16 +52,6 @@
   }
 })();
 
-// Vorübergehend: Hinweis-Pille auf das Änderungsprotokoll (nach der Abnahme löschen).
-(function () {
-  if (/aenderungen\.html$/.test(location.pathname)) return;
-  var a = document.createElement('a');
-  a.href = 'aenderungen.html';
-  a.className = 'pruef-pille';
-  a.setAttribute('data-pruef', '');
-  a.textContent = 'Überarbeitung 11/2026 · Änderungen ansehen';
-  document.body.appendChild(a);
-})();
 
 // Stimmen: Filter nach Angebot
 (function () {
@@ -144,57 +134,3 @@
   });
 })();
 
-// Vorübergehend: Farbwelt-Umschalter zum Vergleichen (nach der Entscheidung löschen).
-// Die Wahl bleibt im Browser gespeichert; ?farbe=salbei in der Adresse wählt direkt.
-(function () {
-  var farben = [
-    ['orange', 'Orange', '#d4692a', 'aktuell'],
-    ['terrakotta', 'Terrakotta', '#c2673f', 'vorher'],
-    ['salbei', 'Salbei', '#6b8a6e', ''],
-    ['rosenholz', 'Rosenholz', '#a86c72', ''],
-    ['taubenblau', 'Taubenblau', '#5d7d92', ''],
-    ['lavendel', 'Lavendel', '#85709a', ''],
-    ['honig', 'Honig', '#a9813e', '']
-  ];
-  var root = document.documentElement;
-  function lesen() { try { return localStorage.getItem('farbwelt'); } catch (e) { return null; } }
-  function merken(k) { try { localStorage.setItem('farbwelt', k); } catch (e) {} }
-  function setzen(k) {
-    if (k === 'orange') root.removeAttribute('data-farbe'); else root.setAttribute('data-farbe', k);
-    merken(k);
-    document.querySelectorAll('.farbwahl-option').forEach(function (b) {
-      b.setAttribute('aria-pressed', b.getAttribute('data-farbe') === k ? 'true' : 'false');
-    });
-  }
-  var ausUrl = /[?&]farbe=([a-z]+)/.exec(location.search);
-  var start = (ausUrl && ausUrl[1]) || lesen() || 'orange';
-  if (!farben.some(function (f) { return f[0] === start; })) start = 'orange';
-
-  var box = document.createElement('div');
-  box.className = 'farbwahl';
-  box.setAttribute('data-pruef', '');
-  box.innerHTML = '<button type="button" class="farbwahl-knopf" aria-expanded="false">'
-    + '<span class="farbwahl-punkte" aria-hidden="true">' + farben.slice(0, 5).map(function (f) { return '<i style="background:' + f[2] + '"></i>'; }).join('') + '</span>Farbwelt</button>'
-    + '<div class="farbwahl-liste" role="group" aria-label="Farbwelt auswählen" hidden>'
-    + '<p class="farbwahl-titel">Farbwelt zum Vergleichen</p>'
-    + farben.map(function (f) {
-        return '<button type="button" class="farbwahl-option" data-farbe="' + f[0] + '" aria-pressed="false">'
-          + '<i style="background:' + f[2] + '"></i><span>' + f[1] + '</span>' + (f[3] ? '<small>' + f[3] + '</small>' : '') + '</button>';
-      }).join('')
-    + '<p class="farbwahl-hinweis">Nur zur Ansicht. Hintergründe bleiben gleich, es ändert sich die Akzentfarbe.</p></div>';
-  document.body.appendChild(box);
-  var knopf = box.querySelector('.farbwahl-knopf'), liste = box.querySelector('.farbwahl-liste');
-  knopf.addEventListener('click', function (e) {
-    e.stopPropagation();
-    var auf = liste.hidden;
-    liste.hidden = !auf;
-    knopf.setAttribute('aria-expanded', auf ? 'true' : 'false');
-  });
-  liste.addEventListener('click', function (e) {
-    e.stopPropagation();
-    var b = e.target.closest('.farbwahl-option');
-    if (b) setzen(b.getAttribute('data-farbe'));
-  });
-  document.addEventListener('click', function () { liste.hidden = true; knopf.setAttribute('aria-expanded', 'false'); });
-  setzen(start);
-})();
