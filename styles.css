@@ -1234,3 +1234,10 @@ h1, h2, h3, .section-title, .page-title, .hero-title, .gift-title { text-wrap: b
 .contact-grid > *, .ueber-grid > *, .methode-grid > *, .hero > *, .gift-box > *, .offer-detail > * { min-width: 0; }
 @media (max-width: 900px) { .contact-grid { grid-template-columns: minmax(0, 1fr); } }
 .info-card p a { white-space: nowrap; }
+
+/* KISMET-Reflexionsbuch als Buch (Angebote) */
+.offer-buch { perspective: 1100px; width: 190px; margin: 6px auto 22px; padding: 4px 18px 18px 4px; }
+.offer-buch .buch-koerper { transform: rotateY(-22deg) rotateX(3deg); }
+.offer-detail:hover .offer-buch .buch-koerper { transform: rotateY(-10deg) rotateX(1deg); }
+.offer-buch .buch-koerper img { border-radius: 3px 7px 7px 3px; }
+@media (min-width: 900px) { .offer-buch { float: right; margin: 0 20px 14px 36px; } }
