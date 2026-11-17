@@ -1274,8 +1274,8 @@ img[width][height] { height: auto; }
 
 /* ---------- Hero neu (11/2026): Text · Porträt im Bogen · Zahlen, darunter Schwerpunkte ---------- */
 .hero.hero-neu {
-  grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.95fr) minmax(0, 0.36fr);
-  grid-template-areas: "text bild zahlen" "leiste leiste leiste";
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.95fr) minmax(0, 0.48fr);
+  grid-template-areas: "text bild zahlen";
   align-items: end;
   gap: 0 clamp(28px, 4vw, 56px);
   padding-top: clamp(40px, 6vw, 72px);
@@ -1290,9 +1290,9 @@ img[width][height] { height: auto; }
   position: absolute; left: -5%; right: -5%; bottom: 0; height: 72%;
   border-radius: 999px 999px 28px 28px;
   background:
-    radial-gradient(120% 80% at 50% 0%, rgba(255,255,255,.55), transparent 60%),
-    linear-gradient(170deg, var(--tint-2) 0%, rgba(var(--accent-soft-rgb), .55) 100%);
-  box-shadow: inset 0 0 0 1px rgba(var(--accent-rgb), .12);
+    radial-gradient(110% 70% at 50% 8%, rgba(255,255,255,.35), transparent 62%),
+    linear-gradient(175deg, #f6cfae 0%, #eea979 100%);
+  box-shadow: 0 30px 60px -34px rgba(var(--accent-deep-rgb), .55);
 }
 .hero-portrait img {
   position: relative; z-index: 1; display: block;
@@ -1359,4 +1359,52 @@ img[width][height] { height: auto; }
   .hero-zahl span { font-size: 12.5px; }
   .hero-social { grid-column: 1 / -1; }
   .hero-bogen { left: 0; right: 0; }
+}
+
+/* Hero, Runde 2: ruhiger. Statt Zahlen drei Vertrauens-Punkte, kein Social, keine Leiste */
+.hero-punkt { display: grid; grid-template-columns: auto 1fr; column-gap: 12px; align-items: start; text-align: left; }
+.hero-punkt-icon {
+  grid-row: span 2; width: 38px; height: 38px; border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: rgba(var(--accent-rgb), .10); color: var(--accent);
+}
+.hero-punkt-icon svg { width: 18px; height: 18px; }
+.hero-punkt b { font-family: 'Newsreader', serif; font-weight: 500; font-size: 19px; line-height: 1.2; color: var(--ink); }
+.hero-punkt span:not(.hero-punkt-icon) { font-size: 13.5px; color: var(--muted); line-height: 1.4; margin-top: 3px; }
+.hero-neu .hero-zahlen { gap: 28px; text-align: left; }
+.hero-neu .hero-portrait img { filter: drop-shadow(0 14px 24px rgba(46,40,35,.22)); }
+@media (max-width: 1080px) {
+  .hero.hero-neu { grid-template-areas: "text bild" "zahlen zahlen"; }
+  .hero-neu .hero-zahlen { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 20px; padding-top: 32px; }
+}
+@media (max-width: 760px) {
+  .hero.hero-neu { grid-template-areas: "text" "bild" "zahlen"; }
+  .hero-neu .hero-zahlen { grid-template-columns: minmax(0,1fr); gap: 16px; padding-top: 28px; }
+}
+
+/* Hero, Runde 3: zwei Spalten, Vertrauens-Punkte als Reihe unter den Knöpfen */
+.hero.hero-neu { grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr); grid-template-areas: "text bild"; }
+.hero-neu .hero-text-col { padding-bottom: 32px; }
+.hero-neu .hero-vertrauen {
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px;
+  margin-top: 34px; padding: 22px 0 0; border-top: 1px solid var(--line);
+}
+.hero-neu .hero-vertrauen .hero-punkt { grid-template-columns: 1fr; row-gap: 8px; }
+.hero-neu .hero-vertrauen .hero-punkt-icon { grid-row: auto; width: 34px; height: 34px; }
+.hero-neu .hero-vertrauen .hero-punkt b { font-size: 17px; }
+.hero-neu .hero-vertrauen .hero-punkt span:not(.hero-punkt-icon) { margin-top: 0; font-size: 13px; }
+.hero-neu .hero-portrait img { width: 88%; max-width: 420px; }
+@media (max-width: 1080px) { .hero.hero-neu { grid-template-areas: "text bild"; } }
+@media (max-width: 760px) {
+  .hero.hero-neu { grid-template-columns: minmax(0,1fr); grid-template-areas: "text" "bild"; }
+  .hero-neu .hero-vertrauen { grid-template-columns: minmax(0,1fr); gap: 14px; }
+  .hero-neu .hero-vertrauen .hero-punkt { grid-template-columns: auto 1fr; column-gap: 12px; row-gap: 0; }
+  .hero-neu .hero-vertrauen .hero-punkt-icon { grid-row: span 2; }
+}
+/* Mittlere Breiten: Menü enger, damit es nicht über den Rand ragt */
+@media (max-width: 1060px) {
+  .nav-links { gap: 18px; font-size: 14.5px; }
+  .nav-cta { padding-left: 16px; padding-right: 16px; }
+  .logo { font-size: 21px; }
+  .logo-tag { display: none; }
 }
