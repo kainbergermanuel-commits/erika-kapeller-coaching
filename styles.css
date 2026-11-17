@@ -1229,3 +1229,8 @@ h1, h2, h3, .section-title, .page-title, .hero-title, .gift-title { text-wrap: b
 
 /* Porträt auf der Methode-Seite: Gesicht im Bild halten */
 .methode-image-inner img[src*="erika-portrait-methode"] { object-position: center 18%; filter: none; }
+
+/* Raster-Spalten dürfen schmaler werden als ihr Inhalt (sonst ragen sie am Handy hinaus) */
+.contact-grid > *, .ueber-grid > *, .methode-grid > *, .hero > *, .gift-box > *, .offer-detail > * { min-width: 0; }
+@media (max-width: 900px) { .contact-grid { grid-template-columns: minmax(0, 1fr); } }
+.info-card p a { white-space: nowrap; }
