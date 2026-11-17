@@ -1271,3 +1271,92 @@ img[width][height] { height: auto; }
 .methode-karte-name { font-weight: 700; color: var(--ink); font-size: 15px; }
 .methode-karte-rolle { font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
 @media (max-width: 860px) { .methode-karte { max-width: 420px; margin: 0 auto; } }
+
+/* ---------- Hero neu (11/2026): Text · Porträt im Bogen · Zahlen, darunter Schwerpunkte ---------- */
+.hero.hero-neu {
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.95fr) minmax(0, 0.36fr);
+  grid-template-areas: "text bild zahlen" "leiste leiste leiste";
+  align-items: end;
+  gap: 0 clamp(28px, 4vw, 56px);
+  padding-top: clamp(40px, 6vw, 72px);
+  padding-bottom: clamp(36px, 5vw, 56px);
+}
+.hero-text-col { grid-area: text; align-self: center; padding-bottom: 40px; }
+.hero-neu .hero-title { font-size: clamp(38px, 4.4vw, 58px); }
+.hero-neu .hero-actions { flex-wrap: wrap; row-gap: 12px; }
+
+.hero-portrait { grid-area: bild; position: relative; display: flex; justify-content: center; align-items: flex-end; min-height: 520px; }
+.hero-bogen {
+  position: absolute; left: -5%; right: -5%; bottom: 0; height: 72%;
+  border-radius: 999px 999px 28px 28px;
+  background:
+    radial-gradient(120% 80% at 50% 0%, rgba(255,255,255,.55), transparent 60%),
+    linear-gradient(170deg, var(--tint-2) 0%, rgba(var(--accent-soft-rgb), .55) 100%);
+  box-shadow: inset 0 0 0 1px rgba(var(--accent-rgb), .12);
+}
+.hero-portrait img {
+  position: relative; z-index: 1; display: block;
+  width: 86%; max-width: 380px; height: auto;
+  border-radius: 0 0 28px 28px;
+  filter: drop-shadow(0 18px 30px rgba(46,40,35,.18));
+}
+.hero-neu .hero-badge { bottom: 18px; z-index: 2; }
+
+.hero-zahlen { grid-area: zahlen; display: flex; flex-direction: column; gap: 26px; text-align: right; padding-bottom: 40px; align-self: center; }
+.hero-zahl b { display: block; font-family: 'Newsreader', serif; font-weight: 500; font-size: clamp(34px, 3.4vw, 44px); line-height: 1; color: var(--ink); }
+.hero-zahl span { display: block; margin-top: 6px; font-size: 13.5px; color: var(--muted); line-height: 1.35; }
+.hero-social span { display: block; font-size: 11px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+.hero-social div { display: flex; gap: 8px; justify-content: flex-end; }
+.hero-social a {
+  width: 38px; height: 38px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;
+  background: #fff; border: 1px solid var(--line); color: var(--ink);
+  transition: color .25s, border-color .25s, transform .25s;
+}
+.hero-social a:hover, .hero-social a:focus-visible { color: var(--accent); border-color: var(--accent); transform: translateY(-2px); }
+.hero-social svg { width: 18px; height: 18px; }
+
+.hero-leiste {
+  grid-area: leiste; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-top: 1px solid var(--line); margin-top: 0;
+}
+.hero-leiste a { display: block; padding: 22px 22px 6px; border-left: 1px solid var(--line); }
+.hero-leiste a:first-child { border-left: 0; padding-left: 0; }
+.hero-leiste b { display: block; font-size: 13px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--ink); margin-bottom: 6px; }
+.hero-leiste span { font-size: 14.5px; color: var(--muted); transition: color .25s; }
+.hero-leiste span span { display: inline-block; transition: transform .3s cubic-bezier(.22,1,.36,1); color: var(--accent); }
+.hero-leiste a:hover span { color: var(--ink); }
+.hero-leiste a:hover span span { transform: translateX(4px); }
+
+@media (max-width: 1080px) {
+  .hero.hero-neu { grid-template-columns: minmax(0,1.1fr) minmax(0,0.9fr); grid-template-areas: "text bild" "zahlen zahlen" "leiste leiste"; }
+  .hero-zahlen { flex-direction: row; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; text-align: left; padding: 28px 0 8px; gap: 20px 28px; }
+  .hero-social div { justify-content: flex-start; }
+}
+@media (max-width: 760px) {
+  .hero.hero-neu { grid-template-columns: minmax(0,1fr); grid-template-areas: "text" "bild" "zahlen" "leiste"; }
+  .hero-text-col { padding-bottom: 28px; }
+  .hero-portrait { min-height: 0; max-width: 340px; width: 100%; margin: 0 auto; }
+  .hero-portrait img { width: 84%; }
+  .hero-zahlen { justify-content: space-between; }
+  .hero-zahl b { font-size: 32px; }
+  .hero-social { flex-basis: 100%; }
+  .hero-leiste { grid-template-columns: repeat(2, minmax(0,1fr)); margin-top: 20px; }
+  .hero-leiste a { padding: 16px 14px 14px; border-left: 0; border-top: 1px solid var(--line); }
+  .hero-leiste a:nth-child(-n+2) { border-top: 0; }
+  .hero-leiste a:nth-child(odd) { padding-left: 0; border-right: 1px solid var(--line); }
+}
+@media (prefers-reduced-motion: reduce) { .hero-social a, .hero-leiste span span { transition: none; } }
+.hero-neu .btn-ghost { padding-left: 10px; padding-right: 10px; }
+.nowrap { white-space: nowrap; }
+.hero-leiste .nowrap { color: inherit; }
+.hero-leiste span.nowrap { display: inline; color: inherit; transform: none; }
+.hero-leiste a:hover span.nowrap { transform: none; }
+.hero-leiste a:hover span.nowrap > span { transform: translateX(4px); }
+.nav-links a { white-space: nowrap; }
+@media (max-width: 760px) {
+  .hero-zahlen { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px 14px; }
+  .hero-zahl b { font-size: 28px; }
+  .hero-zahl span { font-size: 12.5px; }
+  .hero-social { grid-column: 1 / -1; }
+  .hero-bogen { left: 0; right: 0; }
+}
