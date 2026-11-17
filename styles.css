@@ -1408,3 +1408,22 @@ img[width][height] { height: auto; }
   .logo { font-size: 21px; }
   .logo-tag { display: none; }
 }
+
+/* Hero, Variante A: Porträt sitzt IM Bogen (Fenster), der Bogen schneidet die Fotoränder ab */
+.hero-neu .hero-portrait { min-height: 0; align-items: center; }
+.hero-neu .hero-bogen.hero-fenster {
+  position: relative; inset: auto; height: auto;
+  width: 100%; max-width: 400px; aspect-ratio: 2 / 3;
+  overflow: hidden; isolation: isolate;
+  border-radius: 999px 999px 28px 28px;
+}
+.hero-neu .hero-fenster img {
+  position: absolute; left: 50%; top: 6%; transform: translateX(-50%);
+  width: 103%; max-width: none; height: auto;
+  border-radius: 0; filter: none;
+}
+.hero-neu .hero-badge { position: absolute; bottom: -18px; left: 50%; transform: translateX(-50%); white-space: nowrap; }
+.hero-neu .hero-portrait { padding-bottom: 22px; }
+@media (max-width: 760px) {
+  .hero-neu .hero-bogen.hero-fenster { max-width: 340px; margin: 0 auto; }
+}
