@@ -1427,3 +1427,72 @@ img[width][height] { height: auto; }
 @media (max-width: 760px) {
   .hero-neu .hero-bogen.hero-fenster { max-width: 340px; margin: 0 auto; }
 }
+
+/* ---------- Hero Variante D (zentriert): Name groß, Schwerpunkte · Porträt · Leitsatz ---------- */
+.hero-z { max-width: 1180px; margin: 0 auto; padding: clamp(28px, 4vw, 48px) 28px clamp(40px, 5vw, 64px); }
+.hz-kopf { display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center; }
+.hz-kopf .eyebrow { margin: 0; }
+.hz-name { margin: 0; font-family: 'Newsreader', serif; font-weight: 400; font-size: clamp(48px, 6.4vw, 80px); line-height: 1; letter-spacing: -0.015em; }
+.hz-strich { width: 56px; height: 2px; background: var(--accent); margin-top: 8px; }
+
+.hz-raster {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 380px) minmax(0, 1fr);
+  grid-template-areas: "links bild rechts";
+  gap: clamp(28px, 4vw, 56px); align-items: end; margin-top: clamp(8px, 2vw, 20px);
+}
+.hz-links { grid-area: links; display: flex; flex-direction: column; padding-bottom: 40px; }
+.hz-label { font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: var(--accent); font-weight: 800; padding-bottom: 14px; }
+.hz-liste { display: flex; flex-direction: column; }
+.hz-punkt {
+  display: grid; grid-template-columns: 34px minmax(0, 1fr) auto; align-items: baseline; gap: 0 10px;
+  padding: 14px 0; border-top: 1px solid var(--line); color: var(--ink);
+}
+.hz-punkt:last-child { border-bottom: 1px solid var(--line); }
+.hz-nr { font-family: 'Newsreader', serif; font-size: 14px; color: var(--accent); }
+.hz-text { display: flex; flex-direction: column; gap: 2px; }
+.hz-titel { font-family: 'Newsreader', serif; font-size: 21px; line-height: 1.15; transition: color .25s; }
+.hz-unter { font-size: 13px; color: var(--muted); }
+.hz-pfeil { color: var(--accent); font-size: 15px; transition: transform .3s cubic-bezier(.22,1,.36,1); }
+.hz-punkt:hover .hz-titel, .hz-punkt:focus-visible .hz-titel { color: var(--accent-deep); }
+.hz-punkt:hover .hz-pfeil, .hz-punkt:focus-visible .hz-pfeil { transform: translateX(4px); }
+.hz-alle { align-self: flex-start; color: var(--muted); font-size: 13px; font-weight: 600; padding-top: 14px; }
+.hz-alle:hover { color: var(--accent-deep); }
+
+/* Porträt: Karte mit weißem Rand, Kopf ragt oben hinaus (Bild zweimal deckungsgleich) */
+.hz-bild { grid-area: bild; position: relative; width: 100%; aspect-ratio: 380 / 470; }
+.hz-rahmen {
+  position: absolute; left: 0; right: 0; bottom: 0; height: 80.85%;
+  border-radius: 28px; overflow: hidden;
+  background: linear-gradient(175deg, #f6cfae 0%, #eea979 100%);
+  box-shadow: 0 0 0 10px #fff, 0 30px 60px -30px rgba(46,40,35,.35);
+}
+.hz-rahmen img, .hz-kopfbild {
+  position: absolute; left: 50%; bottom: 0; transform: translateX(-50%);
+  width: 121%; max-width: none; height: auto;
+}
+.hz-kopfbild { clip-path: inset(0 0 56% 0); pointer-events: none; }
+
+.hz-rechts { grid-area: rechts; display: flex; flex-direction: column; gap: 20px; padding-bottom: 40px; }
+.hz-claim { margin: 0; font-family: 'Newsreader', serif; font-size: clamp(24px, 2.3vw, 30px); line-height: 1.25; text-wrap: balance; }
+.hz-claim em { font-style: normal; color: var(--accent); }
+.hz-intro { margin: 0; font-size: 15px; line-height: 1.65; color: var(--muted); }
+.hz-rechts .btn { align-self: flex-start; }
+.hz-fakten { display: flex; gap: 22px; padding-top: 16px; border-top: 1px solid var(--line); flex-wrap: wrap; }
+.hz-fakten div { display: flex; flex-direction: column; }
+.hz-fakten b { font-family: 'Newsreader', serif; font-weight: 500; font-size: 22px; }
+.hz-fakten span { font-size: 12px; color: var(--muted); }
+
+@media (max-width: 1000px) {
+  .hz-raster { grid-template-columns: minmax(0, 1fr) minmax(0, 340px); grid-template-areas: "rechts bild" "links links"; align-items: center; }
+  .hz-links { padding-bottom: 0; }
+  .hz-liste { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 32px; }
+  .hz-punkt:nth-last-child(2) { border-bottom: 1px solid var(--line); }
+}
+@media (max-width: 680px) {
+  .hz-raster { grid-template-columns: minmax(0, 1fr); grid-template-areas: "bild" "rechts" "links"; gap: 36px; }
+  .hz-bild { max-width: 320px; margin: 18px auto 0; }
+  .hz-rechts { padding-bottom: 0; }
+  .hz-liste { grid-template-columns: minmax(0, 1fr); }
+  .hz-punkt:nth-last-child(2) { border-bottom: 0; }
+}
+@media (prefers-reduced-motion: reduce) { .hz-pfeil, .hz-titel { transition: none; } }
