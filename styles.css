@@ -1358,7 +1358,7 @@ img[width][height] { height: auto; }
 :root {
   --glanz-rgb: 240,163,95;
   --zweit-rgb: 217,150,122;
-  --verlauf-knopf: linear-gradient(110deg, #dc6418 0%, #d9662e 30%, #c9561a 62%, #b14d10 100%);
+  --verlauf-knopf: linear-gradient(110deg, var(--accent) 0%, color-mix(in srgb, var(--accent) 88%, var(--accent-deep)) 30%, color-mix(in srgb, var(--accent) 80%, rgb(var(--glanz-rgb))) 70%, color-mix(in srgb, var(--accent) 66%, rgb(var(--glanz-rgb))) 100%);
   --verlauf-rand: linear-gradient(135deg, #dc6418, #f0a35f 50%, #d9967a);
   --verlauf-hell: linear-gradient(110deg, #ffffff, #fbeee3 40%, #f8dcc4 70%, #fbe9e0);
 }
@@ -1486,7 +1486,6 @@ img[width][height] { height: auto; }
 
 /* Verläufe folgen der gewählten Farbwelt (Orange behält seine handgemischten Werte) */
 :root[data-farbe] {
-  --verlauf-knopf: linear-gradient(110deg, var(--accent) 0%, color-mix(in srgb, var(--accent) 80%, rgb(var(--glanz-rgb))) 30%, color-mix(in srgb, var(--accent) 50%, var(--accent-deep)) 62%, var(--accent-deep) 100%);
   --verlauf-rand: linear-gradient(135deg, var(--accent), rgb(var(--glanz-rgb)) 50%, rgb(var(--zweit-rgb)));
   --verlauf-hell: linear-gradient(110deg, #ffffff, var(--tint) 40%, var(--selection) 70%, var(--tint));
 }
