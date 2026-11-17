@@ -1241,3 +1241,9 @@ h1, h2, h3, .section-title, .page-title, .hero-title, .gift-title { text-wrap: b
 .offer-detail:hover .offer-buch .buch-koerper { transform: rotateY(-10deg) rotateX(1deg); }
 .offer-buch .buch-koerper img { border-radius: 3px 7px 7px 3px; }
 @media (min-width: 900px) { .offer-buch { float: right; margin: 0 20px 14px 36px; } }
+
+/* Bilder mit width/height-Attributen behalten ihr Seitenverhältnis über CSS */
+.hero-image img, .methode-image-inner img { height: 100%; }
+img[width][height] { height: auto; }
+.hero-image img[width][height], .methode-image-inner img[width][height] { height: 100%; }
+.gift-cover { font-family: inherit; }
