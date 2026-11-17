@@ -1356,6 +1356,8 @@ img[width][height] { height: auto; }
    2) Karten: feiner Verlaufsrand erscheint beim Überfahren.
    3) Symbol-Plättchen: Verlauf gleitet von hell zu etwas kräftiger. Kein Vollton. */
 :root {
+  --glanz-rgb: 240,163,95;
+  --zweit-rgb: 217,150,122;
   --verlauf-knopf: linear-gradient(110deg, #dc6418 0%, #d9662e 30%, #c9561a 62%, #b14d10 100%);
   --verlauf-rand: linear-gradient(135deg, #dc6418, #f0a35f 50%, #d9967a);
   --verlauf-hell: linear-gradient(110deg, #ffffff, #fbeee3 40%, #f8dcc4 70%, #fbe9e0);
@@ -1391,12 +1393,12 @@ img[width][height] { height: auto; }
 /* Angebotskarten haben ::before/::after schon fürs Bild: Rand dort über box-shadow-Verlauf lösen */
 .offer-card:hover, .offer-card:focus-visible {
   border-color: transparent;
-  box-shadow: 0 28px 50px -26px rgba(46,40,35,0.3), 0 0 0 1px rgba(var(--accent-rgb), .55), 0 0 0 4px rgba(240,163,95,.18);
+  box-shadow: 0 28px 50px -26px rgba(46,40,35,0.3), 0 0 0 1px rgba(var(--accent-rgb), .55), 0 0 0 4px rgba(var(--glanz-rgb),.18);
 }
 
 /* Symbol-Plättchen */
 .linien-icon, .offer-detail-icon, .hero-punkt-icon {
-  background: linear-gradient(135deg, rgba(var(--accent-rgb), .08), rgba(var(--accent-rgb), .12) 45%, rgba(240,163,95,.30) 72%, rgba(217,150,122,.28)) 0 0 / 240% 240%;
+  background: linear-gradient(135deg, rgba(var(--accent-rgb), .08), rgba(var(--accent-rgb), .12) 45%, rgba(var(--glanz-rgb),.30) 72%, rgba(var(--zweit-rgb),.28)) 0 0 / 240% 240%;
   transition: background-position .5s ease, box-shadow .3s ease;
 }
 .value-card:hover .linien-icon, .info-card:hover .linien-icon, .offer-detail:hover .offer-detail-icon {
@@ -1406,3 +1408,119 @@ img[width][height] { height: auto; }
 @media (prefers-reduced-motion: reduce) {
   .btn-primary, .nav-cta, .btn-outline, .filter-chip, .linien-icon, .offer-detail-icon { transition: none; }
 }
+
+
+/* ---------- Farbwelten zur Auswahl (vorübergehend, Umschalter in script.js) ---------- */
+:root[data-farbe="terrakotta"] {
+  --glanz-rgb: 226,154,112;
+  --zweit-rgb: 205,150,140;
+  --accent: #c2673f;
+  --accent-deep: #a8532f;
+  --accent-rgb: 194,103,63;
+  --accent-deep-rgb: 168,83,47;
+  --accent-soft-rgb: 221,171,149;
+  --tint: #f8ede5;
+  --tint-2: #f1e1d2;
+  --selection: #ebcec2;
+}
+:root[data-farbe="salbei"] {
+  --glanz-rgb: 160,190,150;
+  --zweit-rgb: 196,178,136;
+  --accent: #6b8a6e;
+  --accent-deep: #53705a;
+  --accent-rgb: 107,138,110;
+  --accent-deep-rgb: 83,112,90;
+  --accent-soft-rgb: 174,191,175;
+  --tint: #f2f0e8;
+  --tint-2: #e9e4d7;
+  --selection: #d0dad1;
+}
+:root[data-farbe="rosenholz"] {
+  --glanz-rgb: 214,150,150;
+  --zweit-rgb: 200,160,182;
+  --accent: #a86c72;
+  --accent-deep: #8a545a;
+  --accent-rgb: 168,108,114;
+  --accent-deep-rgb: 138,84,90;
+  --accent-soft-rgb: 207,174,177;
+  --tint: #f6eee8;
+  --tint-2: #efe1d7;
+  --selection: #e3d0d2;
+}
+:root[data-farbe="taubenblau"] {
+  --glanz-rgb: 140,175,200;
+  --zweit-rgb: 172,162,196;
+  --accent: #5d7d92;
+  --accent-deep: #47657a;
+  --accent-rgb: 93,125,146;
+  --accent-deep-rgb: 71,101,122;
+  --accent-soft-rgb: 166,184,195;
+  --tint: #f2efea;
+  --tint-2: #e8e3da;
+  --selection: #cbd5dc;
+}
+:root[data-farbe="lavendel"] {
+  --glanz-rgb: 184,152,208;
+  --zweit-rgb: 212,160,182;
+  --accent: #85709a;
+  --accent-deep: #6a577e;
+  --accent-rgb: 133,112,154;
+  --accent-deep-rgb: 106,87,126;
+  --accent-soft-rgb: 188,176,199;
+  --tint: #f4eeeb;
+  --tint-2: #ece2db;
+  --selection: #d8d1df;
+}
+:root[data-farbe="honig"] {
+  --glanz-rgb: 222,182,100;
+  --zweit-rgb: 206,150,112;
+  --accent: #a9813e;
+  --accent-deep: #8a672c;
+  --accent-rgb: 169,129,62;
+  --accent-deep-rgb: 138,103,44;
+  --accent-soft-rgb: 208,186,149;
+  --tint: #f6efe5;
+  --tint-2: #efe3d2;
+  --selection: #e3d7c1;
+}
+
+/* Verläufe folgen der gewählten Farbwelt (Orange behält seine handgemischten Werte) */
+:root[data-farbe] {
+  --verlauf-knopf: linear-gradient(110deg, var(--accent) 0%, color-mix(in srgb, var(--accent) 80%, rgb(var(--glanz-rgb))) 30%, color-mix(in srgb, var(--accent) 50%, var(--accent-deep)) 62%, var(--accent-deep) 100%);
+  --verlauf-rand: linear-gradient(135deg, var(--accent), rgb(var(--glanz-rgb)) 50%, rgb(var(--zweit-rgb)));
+  --verlauf-hell: linear-gradient(110deg, #ffffff, var(--tint) 40%, var(--selection) 70%, var(--tint));
+}
+
+/* Farbwelt-Umschalter (vorübergehend) */
+.farbwahl { position: fixed; right: 16px; bottom: 16px; z-index: 70; font-family: 'Mulish', system-ui, sans-serif; }
+.farbwahl-knopf {
+  display: inline-flex; align-items: center; gap: 9px; cursor: pointer;
+  font: inherit; font-size: 13px; font-weight: 700; color: var(--ink);
+  background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 9px 16px 9px 10px;
+  box-shadow: 0 10px 24px -12px rgba(46,40,35,.45);
+}
+.farbwahl-punkte { display: inline-flex; }
+.farbwahl-punkte i { width: 13px; height: 13px; border-radius: 50%; border: 2px solid #fff; margin-left: -5px; }
+.farbwahl-punkte i:first-child { margin-left: 0; }
+.farbwahl-liste {
+  position: absolute; right: 0; bottom: calc(100% + 10px); width: 240px;
+  background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 12px;
+  box-shadow: 0 24px 48px -20px rgba(46,40,35,.45);
+}
+.farbwahl-titel { font-size: 11px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin: 2px 6px 8px; }
+.farbwahl-option {
+  display: flex; align-items: center; gap: 10px; width: 100%; cursor: pointer;
+  font: inherit; font-size: 14px; color: var(--ink); text-align: left;
+  background: none; border: 1px solid transparent; border-radius: 12px; padding: 8px 10px;
+}
+.farbwahl-option:hover { background: var(--bg); }
+.farbwahl-option[aria-pressed="true"] { border-color: var(--line); background: var(--bg); font-weight: 700; }
+.farbwahl-option i { width: 20px; height: 20px; border-radius: 50%; flex-shrink: 0; box-shadow: inset 0 0 0 1px rgba(0,0,0,.08); }
+.farbwahl-option small { margin-left: auto; font-size: 11px; color: var(--muted); font-weight: 600; }
+.farbwahl-hinweis { font-size: 12px; line-height: 1.45; color: var(--muted); margin: 8px 6px 2px; }
+.farbwahl-knopf:focus-visible, .farbwahl-option:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+
+/* Platz unter dem Footer, solange der schwebende Umschalter da ist */
+body:has(.farbwahl) .site-footer { padding-bottom: 72px; }
+@media (max-width: 640px) { body:has(.farbwahl) .site-footer { padding-bottom: 80px; } }
