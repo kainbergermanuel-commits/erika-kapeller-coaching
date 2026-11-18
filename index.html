@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=20261117t">
+<link rel="stylesheet" href="styles.css?v=20261118v">
 </head>
 <body>
 
@@ -93,6 +93,20 @@
     </div>
   </div>
 </section>
+
+<!-- VIDEO (Quelle: Websites/mama-coaching-clip/coaching.html, Hochformat unter 561px) -->
+<section class="video-section">
+  <div class="section-inner">
+    <figure class="coaching-film">
+      <video controls playsinline preload="none" poster="assets/video/coaching-quer.jpg" aria-label="Kurzvorstellung Erika Kapeller Coaching, 36 Sekunden">
+        <source src="assets/video/coaching-quer.mp4" type="video/mp4">
+      </video>
+    </figure>
+  </div>
+</section>
+<script>
+(function(){var v=document.querySelector('.coaching-film video');if(!v||!matchMedia('(max-width:560px)').matches)return;v.poster='assets/video/coaching-hoch.jpg';v.querySelector('source').src='assets/video/coaching-hoch.mp4';v.load();})();
+</script>
 
 <!-- PAIN POINTS -->
 <section class="pains-section">
