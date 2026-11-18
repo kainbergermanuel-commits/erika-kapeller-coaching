@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Mulish:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=20261117t">
+<link rel="stylesheet" href="styles.css?v=20261118a">
 </head>
 <body>
 
@@ -54,7 +54,8 @@
 <main id="main">
 
 <!-- PAGE HERO -->
-<section class="page-hero">
+<section class="page-hero ang-hero">
+  <div class="ang-hero-text">
   <nav class="breadcrumb" aria-label="Brotkrumen">
     <a href="index.html">Start</a>
     <span class="sep" aria-hidden="true">/</span>
@@ -71,17 +72,22 @@
     <a class="filter-chip" href="#vortraege">Vorträge &amp; Workshops</a>
     <a class="filter-chip" href="#onlinekurs">Onlinekurs</a>
   </nav>
+  </div>
+  <figure class="ang-hero-bild"><img src="assets/img/ang-hero.jpg" alt="Erika Kapeller sitzt nachdenklich am Fenster" width="1400" height="788" fetchpriority="high"></figure>
 </section>
 
 <!-- OFFER DETAILS -->
-<section class="band band-narrow band-tight">
+<section class="band ang-liste">
 
-  <article class="offer-detail" id="einzel-coaching">
-    <div class="offer-detail-icon offer-nr" aria-hidden="true">01</div>
-    <div>
+  <article class="ang" id="einzel-coaching">
+    <div class="ang-bild">
+      <img class="ang-foto" src="assets/img/ang-einzel.jpg" alt="Erika Kapeller im vertrauensvollen Einzelgespräch" loading="lazy" width="1400" height="788">
+      <span class="ang-nr" aria-hidden="true">01</span>
+    </div>
+    <div class="ang-text">
+      <span class="ang-kicker">Für dich allein</span>
       <h2>Einzel-Coaching</h2>
       <p class="lead">Wir erarbeiten deinen Ist-Zustand, deine Wünsche und Ziele – und was du konkret tun kannst, um dir <mark>dein Traumleben zu erschaffen</mark>. Klar, ehrlich und in deinem Tempo.</p>
-      <img class="offer-photo" src="assets/img/einzel-coaching.jpg" alt="Eine Frau im vertrauensvollen Gespräch mit ihrer Coachin" loading="lazy" width="903" height="604">
       <ul>
         <li>Für dich, wenn du das Gefühl hast, nur noch zu „funktionieren“.</li>
         <li>Wir schauen ehrlich hin: Wo stehst du, und wo möchtest du hin?</li>
@@ -92,12 +98,15 @@
     </div>
   </article>
 
-  <article class="offer-detail" id="paar-coaching">
-    <div class="offer-detail-icon offer-nr" aria-hidden="true">02</div>
-    <div>
+  <article class="ang" id="paar-coaching">
+    <div class="ang-bild">
+      <img class="ang-foto" src="assets/img/paar-coaching.jpg" alt="Ein Paar hält sich an den Händen, die Coachin macht sich Notizen" loading="lazy" width="903" height="599">
+      <span class="ang-nr" aria-hidden="true">02</span>
+    </div>
+    <div class="ang-text">
+      <span class="ang-kicker">Für euch zu zweit</span>
       <h2>Paar-Coaching</h2>
       <p class="lead">Wir beleuchten, was eure Partnerschaft belastet, und entwickeln <mark>sofort umsetzbare Kommunikations-Strategien</mark> für eine harmonische Beziehung – wertschätzend und auf Augenhöhe für beide.</p>
-      <img class="offer-photo" src="assets/img/paar-coaching.jpg" alt="Ein Paar hält sich an den Händen, die Coachin macht sich Notizen" loading="lazy" width="903" height="599">
       <ul>
         <li>Für Paare, die den Alltag wieder gegen echte Verbindung tauschen möchten.</li>
         <li><span class="li-text"><span class="begriff"><span class="begriff-wort" role="button" tabindex="0" aria-describedby="tip-angebote-1">Gewaltfreie Kommunikation</span><span class="begriff-tip" role="tooltip" id="tip-angebote-1">Gewaltfreie Kommunikation nach Marshall Rosenberg: Beobachtungen, Gefühle, Bedürfnisse und Bitten klar aussprechen, ohne Vorwurf.</span></span> als Schlüssel aus wiederkehrenden Konflikten.</span></li>
@@ -108,12 +117,15 @@
     </div>
   </article>
 
-  <article class="offer-detail" id="familien-coaching">
-    <div class="offer-detail-icon offer-nr" aria-hidden="true">03</div>
-    <div>
+  <article class="ang" id="familien-coaching">
+    <div class="ang-bild">
+      <img class="ang-foto" src="assets/img/familie-am-tisch.jpg" alt="Eltern und Kinder sitzen gemeinsam am Tisch" loading="lazy" width="902" height="599">
+      <span class="ang-nr" aria-hidden="true">03</span>
+    </div>
+    <div class="ang-text">
+      <span class="ang-kicker">Für die ganze Familie</span>
       <h2>Familien-Coaching</h2>
       <p class="lead">Mehr Harmonie und Verständnis: Ihr lernt, mit unterschiedlichen Bedürfnissen gut umzugehen und <mark>wieder Vertrauen in die Familie zu bringen</mark>.</p>
-      <img class="offer-photo" src="assets/img/familie-am-tisch.jpg" alt="Eltern und Kinder sitzen gemeinsam am Tisch" loading="lazy" width="902" height="599">
       <ul>
         <li>Für Familien mit Spannungen im Alltag – von Kleinkind bis Pubertät.</li>
         <li>Altersgerechte Methoden, die Kinder und Eltern einbeziehen.</li>
@@ -124,13 +136,16 @@
     </div>
   </article>
 
-  <article class="offer-detail" id="lern-training">
-    <div class="offer-detail-icon offer-nr" aria-hidden="true">04</div>
-    <div>
+  <article class="ang" id="lern-training">
+    <div class="ang-bild">
+      <img class="ang-foto" src="assets/img/lern-training.jpg" alt="Zwei Mädchen lesen fröhlich in ihren Büchern" loading="lazy" width="903" height="582">
+      <span class="ang-nr" aria-hidden="true">04</span>
+    </div>
+    <div class="ang-text">
+      <span class="ang-kicker">Für Kinder &amp; Eltern</span>
       <h2>Lern- &amp; LRS-Training</h2>
 
       <p class="lead">Unterstützung deines Kindes bei Lese-Rechtschreib-Schwierigkeiten (<span class="begriff"><span class="begriff-wort" role="button" tabindex="0" aria-describedby="tip-angebote-2">LRS</span><span class="begriff-tip" role="tooltip" id="tip-angebote-2">Lese-Rechtschreib-Schwierigkeiten: anhaltende Probleme beim Lesen und Schreiben, die sich mit gezieltem Training gut verbessern lassen.</span></span>), Konzentration und Motivation – <mark>sowie bei Schul- und Versagensängsten</mark>.</p>
-      <img class="offer-photo" src="assets/img/lern-training.jpg" alt="Zwei Mädchen lesen fröhlich in ihren Büchern" loading="lazy" width="903" height="582">
       <ul>
         <li>Für Kinder mit Lern-, Konzentrations- oder Motivationsproblemen und LRS.</li>
         <li>Gezieltes Training für Rechtschreibung, Lesen und Konzentration.</li>
@@ -141,12 +156,15 @@
     </div>
   </article>
 
-  <article class="offer-detail" id="vortraege">
-    <div class="offer-detail-icon offer-nr" aria-hidden="true">05</div>
-    <div>
+  <article class="ang" id="vortraege">
+    <div class="ang-bild">
+      <img class="ang-foto" src="assets/img/ang-vortrag.jpg" alt="Erika Kapeller spricht im Stuhlkreis mit einer Gruppe" loading="lazy" width="1400" height="788"><img class="ang-einsatz" src="assets/img/ang-workshop.jpg" alt="Workshop-Teilnehmende arbeiten gemeinsam am Tisch mit Bildkarten" loading="lazy" width="1400" height="788">
+      <span class="ang-nr" aria-hidden="true">05</span>
+    </div>
+    <div class="ang-text">
+      <span class="ang-kicker">Für Gruppen &amp; Teams</span>
       <h2>Vorträge &amp; Workshops</h2>
       <p class="lead">Für Schulen, Fortbildungen, KITAs, Gemeinden und Unternehmen – als Vortrag oder interaktiver Workshop, zu Gewaltfreier Kommunikation, <span class="begriff"><span class="begriff-wort" role="button" tabindex="0" aria-describedby="tip-angebote-3">Resilienz</span><span class="begriff-tip" role="tooltip" id="tip-angebote-3">Die innere Widerstandskraft, mit der wir Krisen und Belastungen gut bewältigen.</span></span>, Persönlichkeitsentwicklung, Stress-Prävention u.v.m.</p>
-      <img class="offer-photo" src="assets/img/vortraege-workshops.jpg" alt="Workshop im Stuhlkreis: eine Referentin spricht mit einer Gruppe" loading="lazy" width="902" height="599">
       <ul>
         <li>Lebendig, praxisnah und mit einem Schuss Humor.</li>
         <li>Themen nach Wunsch – abgestimmt auf euer Publikum.</li>
@@ -157,16 +175,20 @@
     </div>
   </article>
 
-  <article class="offer-detail" id="onlinekurs">
-    <div class="offer-detail-icon offer-nr" aria-hidden="true">06</div>
-    <div>
-      <h2>Mein Onlinekurs KISMET</h2>
-      <p class="lead">Mein Onlinekurs <span class="begriff"><span class="begriff-wort" role="button" tabindex="0" aria-describedby="tip-angebote-4">KISMET</span><span class="begriff-tip" role="tooltip" id="tip-angebote-4">Mein Onlinekurs: 4 Module, 125 Lektionen, 120 Videos und ein 57-seitiges Reflexionsbuch. Auf Wunsch begleite ich dich dabei persönlich im Coaching.</span></span> ist mehr als ein Selbstlernkurs: Du gehst ihn <mark>im eigenen Tempo</mark> – und auf Wunsch begleite ich dich dabei in einem persönlichen Coaching.</p>
-      <div class="offer-buch buch">
+  <article class="ang" id="onlinekurs">
+    <div class="ang-bild">
+      <img class="ang-foto" src="assets/img/ang-kurs.jpg" alt="Erika Kapeller nimmt im hellen Studio ein Kursvideo auf" loading="lazy" width="1400" height="788">
+      <div class="ang-buch buch">
         <div class="buch-koerper">
           <img src="assets/img/kismet-reflexionsbuch.jpg" alt="Cover des Reflexionsbuchs zum Onlinekurs KISMET" loading="lazy" width="512" height="800">
         </div>
       </div>
+      <span class="ang-nr" aria-hidden="true">06</span>
+    </div>
+    <div class="ang-text">
+      <span class="ang-kicker">Im eigenen Tempo</span>
+      <h2>Mein Onlinekurs KISMET</h2>
+      <p class="lead">Mein Onlinekurs <span class="begriff"><span class="begriff-wort" role="button" tabindex="0" aria-describedby="tip-angebote-4">KISMET</span><span class="begriff-tip" role="tooltip" id="tip-angebote-4">Mein Onlinekurs: 4 Module, 125 Lektionen, 120 Videos und ein 57-seitiges Reflexionsbuch. Auf Wunsch begleite ich dich dabei persönlich im Coaching.</span></span> ist mehr als ein Selbstlernkurs: Du gehst ihn <mark>im eigenen Tempo</mark> – und auf Wunsch begleite ich dich dabei in einem persönlichen Coaching.</p>
       <ul>
         <li>4 Module und 125 Lektionen, aufeinander aufbauend.</li>
         <li>120 Videos und ein 57-seitiges Reflexionsbuch zum Vertiefen.</li>
@@ -177,6 +199,21 @@
     </div>
   </article>
 
+</section>
+
+<!-- FORMAT -->
+<section class="ang-format">
+  <figure class="ang-format-bild"><img src="assets/img/ang-online.jpg" alt="Erika Kapeller im Online-Coaching am Laptop" loading="lazy" width="1400" height="788"></figure>
+  <div class="ang-format-text">
+    <span class="eyebrow">So arbeiten wir</span>
+    <h2 class="section-title">Vor Ort oder <em>online</em></h2>
+    <p>Alle Angebote sind vor Ort oder per Video möglich. Du entscheidest, was gerade in deinen Alltag passt.</p>
+    <ol class="ang-schritte">
+      <li><b>Kostenloses Klarheitsgespräch</b><span>Wir lernen uns unverbindlich kennen.</span></li>
+      <li><b>Dein Weg</b><span>Gemeinsam klären wir Ziele und Rahmen.</span></li>
+      <li><b>Begleitung</b><span>In deinem Rhythmus, so lange es dir guttut.</span></li>
+    </ol>
+  </div>
 </section>
 
 <!-- CTA BAND -->
@@ -230,6 +267,6 @@
 
 </div>
 
-<script src="script.js?v=20261117t"></script>
+<script src="script.js?v=20261118a"></script>
 </body>
 </html>
